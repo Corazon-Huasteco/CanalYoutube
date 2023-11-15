@@ -22,54 +22,28 @@ export const Mapa = () => {
   //   t.putAttribute("experiment", "A");
   // }, []);
 
-  const position = [21.1437, -98.4181];
+  
 
   return (
     <Box sx={{bgcolor: "background.default"}}>
       <Bread migas={[{miga: "INICIO", ruta: "/inicio", icono: <HomeRounded/>},{miga: "MAPA", ruta: "/mapa", icono: <MapRounded/>}]}/>
       {/* M A P A */}
       <Paper elevation={0}>
-        <Container maxWidth="sx" data-aos="flip-right">
+        <Container maxWidth="sx">
           <Grid container spacing={1}>
             <Grid item xs>
               <Box
+                data-testid="map-container"
                 style={{
                   display: "flex",
                   flexFlow: "row wrap",
                   justifyContent: "center",
                 }}
               >
-                <ContenedorMapa center={position} zoom={16} scrollWheelZoom={false}>
-                  <TileLayer
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                  />
-                  <Marker position={position}>
-                    <Popup>
-                      Huejutla de Reyes Hidalgo. <br /> 43000
-                    </Popup>
-                  </Marker>
-
-                  <Marker position={[21.147628, -98.408421]}>
-                    <Popup>
-                      Parque Municipal de Huejutla de Reyes. <br /> 43000
-                    </Popup>
-                  </Marker>
-
-                  <Marker position={[21.141316, -98.419818]}>
-                    <Popup>
-                      Reloj Monumental de Huejutla. <br /> 43000
-                    </Popup>
-                  </Marker>
-
-                  <Marker position={[21.147159, -98.424378]}>
-                    <Popup>
-                      Reloj Monumental de Huejutla. <br /> 43000
-                    </Popup>
-                  </Marker>
-                </ContenedorMapa>
+                {/* START FROM MAP */}
+                  <OnlyMapa/>
+                {/* END OF MAP */}
               </Box>
-
             </Grid>
           </Grid>
         </Container>
@@ -77,3 +51,46 @@ export const Mapa = () => {
     </Box>
   );
 };
+
+
+export const OnlyMapa = ({altura}) => {
+
+  const position = [21.1437, -98.4181];
+
+  return(
+    <ContenedorMapa center={position} zoom={16} scrollWheelZoom={false} altura={altura}>
+      <TileLayer
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      />
+      <Box data-testid="marker-1">
+        <Marker position={position}>
+          <Box data-testid="popup-1"> 
+            <Popup>
+              Huejutla de Reyes Hidalgo. <br /> 43000
+            </Popup>
+          </Box>
+        </Marker>
+      </Box>
+
+      <Marker position={[21.147628, -98.408421]}>
+        <Popup>
+          Parque Municipal de Huejutla de Reyes. <br /> 43000
+        </Popup>
+      </Marker>
+
+      <Marker position={[21.141316, -98.419818]}>
+        <Popup>
+          Reloj Monumental de Huejutla. <br /> 43000
+        </Popup>
+      </Marker>
+
+      <Marker position={[21.147159, -98.424378]}>
+        <Popup>
+          Reloj Monumental de Huejutla. <br /> 43000
+        </Popup>
+      </Marker>
+    </ContenedorMapa>
+  )
+  
+}

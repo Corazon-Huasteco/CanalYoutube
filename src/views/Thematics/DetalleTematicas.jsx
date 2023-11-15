@@ -7,7 +7,7 @@ import { Bread } from '../../components/customs/Bread';
 import { useParams } from 'react-router-dom';
 import {useAuth} from "../../context/AuthContext"
 import AgregarComentarios from './Comentarios/AgregarComentarios';
-import userImage from "../../assets/img/perfil/noProfilePicture.jpg";
+import userImage from "../../assets/img/perfil/noProfilePicture.webp";
 import { app } from '../../config/firebase/firebase'
 
 export const DetalleTematicas = ({tematicas}) => {
@@ -157,19 +157,19 @@ export const DetalleTematicas = ({tematicas}) => {
               </Card>
             </Paper>
             <Paper sx={{m:1, p:2}} elevation={6}>
-              <IconButton color='primary'>
+              <IconButton aria-label='ir a facebbok' color='primary'>
                 <Facebook fontSize='large'/>
               </IconButton>
-              <IconButton color='primary'>
+              <IconButton aria-label='ir a twitter' color='primary'>
                 <Twitter fontSize='large'/>
               </IconButton>
-              <IconButton color='primary'>
+              <IconButton aria-label='ir a instagram' color='primary'>
                 <Instagram fontSize='large'/>
               </IconButton>
-              <IconButton color='primary'>
+              <IconButton aria-label='ir a youtube' color='primary'>
                 <YouTube fontSize='large'/>
               </IconButton>
-              <IconButton color='primary'>
+              <IconButton aria-label='ir al blog web' color='primary'>
                 <Web fontSize='large'/>
               </IconButton>
               

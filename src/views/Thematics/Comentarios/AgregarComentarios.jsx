@@ -5,7 +5,7 @@ import {Button,Box,TextField,Alert,Dialog,DialogTitle,IconButton,DialogContent,D
 import { app } from "../../../config/firebase/firebase";
 import AddCommentIcon from '@mui/icons-material/AddComment';
 import CloseIcon from '@mui/icons-material/Close';
-import userImage from "../../../assets/img/perfil/noProfilePicture.jpg";
+import userImage from "../../../assets/img/perfil/noProfilePicture.webp";
 
 
 const AgregarComentarios = ({tematica}) => {
@@ -121,8 +121,8 @@ const AgregarComentarios = ({tematica}) => {
   };
 
   return (
-    <div>
-      <Button variant="contained" startIcon={<AddCommentIcon/>} onClick={handleClickOpen}>Agregar Comentario</Button>        
+    <Box>
+      <Button aria-label='abrir ventana para agregar comentario' variant="contained" startIcon={<AddCommentIcon/>} onClick={handleClickOpen}>Agregar Comentario</Button>        
       <Dialog
         open={openDialog}
         onClose={handleClose}
@@ -133,7 +133,7 @@ const AgregarComentarios = ({tematica}) => {
         <DialogTitle id="alert-dialog-title">
           Agregar Comentario
           <IconButton
-              aria-label="close"
+              aria-label="cerrar ventana para agregar comentario"
               onClick={handleClose}
               sx={{
               position: 'absolute',
@@ -202,6 +202,7 @@ const AgregarComentarios = ({tematica}) => {
 
         <DialogActions>
           <Button
+            aria-label='agregar comentario al post'
             type="submit"
             variant="contained"
             onClick={handleSubmit}
@@ -222,7 +223,7 @@ const AgregarComentarios = ({tematica}) => {
         </DialogContent>
 
       </Dialog>
-    </div>
+    </Box>
   )
 }
 
