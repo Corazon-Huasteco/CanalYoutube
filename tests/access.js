@@ -1,6 +1,6 @@
 const { Selector } = require("testcafe");
 
-fixture`Testiando el acceso`.page("https://corazon-huasteco.com/acceso");
+fixture`Testiando el acceso`.page("https://canal-youtube.vercel.app/acceso");
 
 
 test('Validar el acceso', async (t) =>{
@@ -11,5 +11,5 @@ test('Validar el acceso', async (t) =>{
     .typeText('[name="email"]',"eduazuara0@gmail.com")
     .typeText('[name="password"]', "Eduardo18@")
     .click(button)
-    .expect(t.eval(() => window.location.href)).eql('https://corazon-huasteco.com/user/consultor');
+    .expect(t.eval(() => window.location.href)).eql('https://canal-youtube.vercel.app/user/administrador');
 });

@@ -1,6 +1,6 @@
 const { Selector } = require("testcafe");
 
-fixture`Testiando el registro`.page("https://corazon-huasteco.com/registro");
+fixture`Testiando el registro`.page("https://canal-youtube.vercel.app/registro");
 
 test('Validar el registro', async (t) => {
     const btnValidar = await Selector('.MuiButtonBase-root.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.MuiButton-fullWidth[aria-label="Validar correo electronico"]');
