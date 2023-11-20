@@ -1,8 +1,11 @@
 const { Selector } = require("testcafe");
-                                   
+
 fixture`Testiando el acceso`.page("https://canal-youtube.vercel.app/acceso");
 
-test('Validar el acceso', async (t) =>{
+test('Validar el acceso', async (t) => {
+    const pageTitle = await Selector('title').innerText;
+    const is404 = pageTitle.includes('404');
+
     await t
-    .expect(Selector('title').innerText).notContains('404');
+        .expect(is404).notOk('Page should not be a 404 error');
 });
